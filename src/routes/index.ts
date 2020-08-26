@@ -2,8 +2,15 @@ import { Router } from 'express';
 
 const routes = Router();
 
-routes.get('/', (request, response) => {
-  response.json({ message: 'Hello GoStack!' });
+routes.post('/users', (request, response) => {
+  const { name, email } = request.body;
+
+  const users = {
+    name,
+    email,
+  };
+
+  return response.json(users);
 });
 
 export default routes;
